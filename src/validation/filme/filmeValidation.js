@@ -18,3 +18,16 @@ export function validarNovoFilme(filmeObj) {
     if (filmeObj.disponivel == undefined)
         throw new Error('Disponivel do filme Obrigatorio');
 }
+
+
+export function validarFilmeUnico(registros){
+    if(registros.lenght == 0)
+        throw new Error('Filme não encontrado');
+}
+
+
+
+export function validarFilmeIgual(registros){
+    if(registros.lenght > 0)
+        throw new Error('Já existe filme com esse nome');
+}

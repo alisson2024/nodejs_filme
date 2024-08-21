@@ -31,3 +31,44 @@ export async function consultarFilmes(nome) {
 
     return registros;
 }
+
+
+
+
+export async function consultarFilmePorNome(nome) {
+    let comando = `
+       SELECT   id_filme    id,  
+                nm_filme    nome,	
+                vl_avaliacao    avaliacao,
+                dt_lancamento   lancamento,	
+                bt_disponivel   disponivel
+	    FROM tb_filme
+        where id_filme = ?
+    `
+
+    let resposta = await con.query(comando, [nome]);
+    let registros= resposta[0]
+
+    return registros;
+}
+
+
+
+export async function consultarFilmePorId(id) {
+    let comando = `
+       SELECT   id_filme    id,  
+                nm_filme    nome,
+                ds_sinopse    sinopse,		
+                vl_avaliacao    avaliacao,
+                dt_lancamento   lancamento,	
+                bt_disponivel   disponivel,
+                img_filme       img
+	    FROM tb_filme
+        where id_filme = ?
+    `
+
+    let resposta = await con.query(comando, [id]);
+    let registros= resposta[0]
+
+    return registros;
+}
