@@ -103,3 +103,16 @@ WHERE id_filme = ?;
 
     return linhasAfetadas;
 }
+
+
+export async function deletarFilme(id){
+    let comando = `
+        DELETE FROM tb_filme WHERE id_filme = ?
+       `
+
+       let resposta= await con.query(comando, [id]);
+
+       let info = resposta[0];
+       let linhasAfetadas= info.affectedrows;
+
+       return linhasAfetadas;}
