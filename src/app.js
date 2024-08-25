@@ -1,4 +1,4 @@
-import './utils/global.js';
+import './utils/global.j';
 
 import 'dotenv/config.js';
 import express from 'express';
